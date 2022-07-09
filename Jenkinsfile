@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker 'python:3.9.6' }
+    agent none
     stages {
         stage('build') {
             steps {
-                sh 'python --version'
+                sh 'cat /etc/os-release'
                 sh "Hello World"
                 sh '''
                     echo "Multiline shell steps works too"
