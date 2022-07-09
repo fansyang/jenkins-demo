@@ -13,6 +13,7 @@ pipeline {
           sh 'node -v'
           sh 'docker version'
           sh 'docker images'
+          sh 'cat /etc/os-release'
         }
       }
      }
