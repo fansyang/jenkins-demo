@@ -1,14 +1,20 @@
 pipeline {
-    stages {
-        stage('build') {
-            steps {
-                sh 'cat /etc/os-release'
-                sh "Hello World"
-                sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
-            }
-        }
+  agent {
+    node {
+      label 'nodejs'
     }
+  }
+  
+  stages {
+    stage('nodejs hello') {
+      steps {
+        container('nodejs') {
+          sh 'yarn -v'
+          sh 'node -v'
+          sh 'docker version'
+          sh 'docker images'
+        }
+      }
+     }
+   }
 }
